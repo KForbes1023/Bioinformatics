@@ -1,0 +1,10 @@
+sed '/[Zz]oo/d' pandas.txt > panda_zoos.txt
+awk -F'\t' '{print $1, $2, $3}' pandas.txt | sort -k3 > sorted_pandas.txt
+cut -f4 pandas.txt | sort -u > panda_zoos_A2Z.txt
+sed 's/male/M/g; s/female/F/g' pandas.txt > panda_m_f.txt
+grep -i 'female' pandas.txt | grep -i 'october' | wc -l
+nl pandas.txt > panda_names.txt
+sed -n '1p;6p;17p' pandas.txt > lines_1_6_17.txt
+grep -i 'x' pandas.txt > x_lines.txt
+awk -F'\t' '{print $4}' pandas.txt | sort | uniq -u > unique_places.txt
+awk -F'\t' '$2 <= 10 {print $1, $2}' pandas.txt | sort -k2,2n > young_pandas.txt
