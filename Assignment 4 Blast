@@ -1,0 +1,10 @@
+makeblastdb -in database_mystery_transcripts.fasta -dbtype nucl -out mystery_transcripts_db
+makeblastdb -in database_mystery_proteins.fasta -dbtype prot -out mystery_proteins_db
+blastn -query mystery_nucleotide_query.fasta -db mystery_transcripts_db -evalue 1e-3 -max_target_seqs 5 -outfmt 7 -out mystery_transcripts_search.txt
+awk '$3 >= 90 {print $2}' mystery_transcripts_search.txt | sort -u
+awk '$3 > 90 {print $2}' mystery_transcripts_search.txt > most_similar.txt
+blastp -query mystery_protein_query.fasta -db mystery_proteins_db -evalue 1e-5 -max_target_seqs 15 -outfmt 7 -out mystery_protein_search.txt
+awk '$1 !~ /^#/ {print $2, $11}' mystery_protein_search.txt | sort -k2,2g | head -n 1
+The species in mystery_transcript.fasta is Coffea arabica
+The species of the mystery query is Gardenia jasminoides
+The gene of the mystery query is Catalase isozyme 1
