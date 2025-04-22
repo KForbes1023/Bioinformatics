@@ -1,0 +1,4 @@
+muscle -in bats_ace2.fasta -out bats_ace2_aligned.fasta
+raxmlHPC -s bats_ace2_aligned.fasta -n bats_tree -m GTRGAMMA -p 12345 -# 100
+The species closest to the Flying Fox are: Dobsonia viridis, cynopterus sphinx, epomophorus wahlbergi, rousettus leschnaulti, and syconcycertis australis
+This phylogenic tool is useful because it always us to see all the species that share a gene. Specifically, every species in my phylogenic tree had the ACE2 receptor which is the cellular entry point for the virus responsible for COVID-19. And Flying foxes have an evolved ACE2 variant that is less susceptible to the viral binding. Having a list of species that all share this receptor could allow scientist to trace the evolution of this receptor and eventually lead to a cure or a biomedical breakthrough for COVID 19.
